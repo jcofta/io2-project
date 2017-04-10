@@ -10,8 +10,9 @@ from django.http import HttpResponse
 #    return HttpResponse("Hello, world. You're at the polls index.")
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
+    # latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    # context = {'latest_question_list': latest_question_list}
+    context = {}
     return render(request, 'eleague/index.html', context)
 
 def detail(request, question_id):
