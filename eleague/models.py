@@ -24,4 +24,4 @@ class Event(models.Model):
     date = models.DateTimeField()
     place = models.CharField(max_length=500)
     def __str__(self):
-        return self.tournament.tag + " " + self.date
+        return self.tournament.tag + " " + str(self.date)
