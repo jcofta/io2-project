@@ -17,7 +17,7 @@ class Tournament(models.Model):
     )
     sport = models.CharField(max_length=3,choices=SPORTS)
     def __str__(self):
-        return self.tag
+        return self.name
 
 class Event(models.Model):
     tournament = models.ForeignKey(Tournament,on_delete=models.CASCADE)
