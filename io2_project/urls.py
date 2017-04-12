@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$', include('eleague.urls')),
     url(r'^users/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^signup/$', users_views.signup, name='signup'),

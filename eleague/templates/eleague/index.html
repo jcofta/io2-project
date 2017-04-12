@@ -1,7 +1,9 @@
+<h1>eLeague</h1>
 {% if user.is_authenticated %}
   <p>Welcome {{ user.username }} !!!</p>
   <a href="{% url 'logout' %}?next=/"> Logout</a>
 {% else %}
+  <p>You are not logged yet!</p>
     <ul>
       <li><a href="{% url 'login' %}">Log in</a></li>
       <li><a href="{% url 'signup' %}">Sign up</a></li>
