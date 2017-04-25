@@ -20,6 +20,7 @@ from users import views as users_views
 
 urlpatterns = [
     url(r'^$', include('eleague.urls')),
+    url(r'^eleague/', include('eleague.urls')),
     url(r'^users/', include('users.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

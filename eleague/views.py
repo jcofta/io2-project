@@ -1,19 +1,20 @@
 from django.shortcuts import get_object_or_404,render
 from django.http import Http404
 from django.http import HttpResponse
+from .models import Event
+from django.contrib.auth import models as auth_models
 
-#def index(request):
-#    return HttpResponse("Hello, world. You're at the polls index.")
+
+
 
 def index(request):
-    # latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    # context = {'latest_question_list': latest_question_list}
     context = {}
     return render(request, 'eleague/index.html', context)
 
-# def detail(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'eleague/detail.html',{'question': question})
+def myevents(request):
+    event_list = Event.objects.filter(tournament__owner=request.user)
+    context = {'event_list': event_list}
+    return render(request, 'eleague/myevents.html',context)
 #
 # def results(request, question_id):
 #     response = "You're looking at the results of question %s."
