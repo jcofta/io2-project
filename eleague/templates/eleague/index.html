@@ -2,7 +2,9 @@
 {% if user.is_authenticated %}
   <p>Welcome {{ user.username }} !!!</p>
   <a href="{% url 'logout' %}?next=/"> Logout</a><br>
+  <a href="/eleague/mytournaments">My tournaments</a><br>
   <a href="/eleague/myevents">My events</a><br>
+
 {% else %}
   <p>You are not logged yet!</p>
     <ul>

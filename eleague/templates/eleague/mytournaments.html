@@ -1,18 +1,22 @@
 {% if user.is_authenticated %}
-    <h1>Events owned by: {{ user.username }}</h1>
+
+    <h1>Tournaments owned by: {{ user.username }}</h1>
     {% if event_list %}
     <ul>
-    {% for event in event_list %}
-        <li>{{ event }}</li>
+    {% for tournament in tournament_list %}
+        <li>{{ tournament }}</li>
     {% endfor %}
     </ul>
     {% else %}
-        <p>No events are available.</p>
+        <p>No tournament are available.</p>
     {% endif %}
+
 {% else %}
+
     <p>You are not logged yet!</p>
       <ul>
         <li><a href="{% url 'login' %}">Log in</a></li>
         <li><a href="{% url 'signup' %}">Sign up</a></li>
       </ul>
+
 {% endif %}
