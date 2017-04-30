@@ -1,10 +1,10 @@
 {% if user.is_authenticated %}
 
     <h1>Tournaments owned by: {{ user.username }}</h1>
-    {% if event_list %}
+    {% if tournament_list %}
     <ul>
     {% for tournament in tournament_list %}
-        <li>{{ tournament }}</li>
+        <li><a href="../{{ tournament.id }}">{{tournament.name}}</li>
     {% endfor %}
     </ul>
     {% else %}

@@ -1,0 +1,22 @@
+{% if user.is_authenticated %}
+
+    <h1>Hi "{{ user.username }}", add a new Tournament</h1>
+
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% include 'eleague/form-template.html'%}
+      <div>
+        <button type="submit"> Submit </button>
+      </div>
+    </form>
+
+
+{% else %}
+
+    <p>You are not logged yet!</p>
+      <ul>
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{% url 'signup' %}">Sign up</a></li>
+      </ul>
+
+{% endif %}

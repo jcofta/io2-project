@@ -4,12 +4,20 @@ from django.http import HttpResponse
 from .models import Event, Tournament
 from django.contrib.auth import models as auth_models
 
-
-
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 def index(request):
     context = {}
     return render(request, 'eleague/index.html', context)
+
+def tdetail(request,tournament_id):
+    try:
+        tournament = Tournament.objects.get(pk=tournament_id)
+    except Tournament.DoesNotExist:
+        raise Http404("Tournament does not exist")
+    context = {'tournament':tournament}
+    return render(request, 'eleague/tdetail.html', context)
 
 def myevents(request):
     event_list = Event.objects.filter(tournament__owner=request.user)
@@ -20,9 +28,11 @@ def mytournaments(request):
     tournament_list = Tournament.objects.filter(owner=request.user)
     context = {'tournament_list': tournament_list}
     return render(request, 'eleague/mytournaments.html',context)
-# def results(request, question_id):
-#     response = "You're looking at the results of question %s."
-#     return HttpResponse(response % question_id)
-#
-# def vote(request, question_id):
-#     return HttpResponse("You're voting on question %s." % question_id)
+
+#def newtournament(request):
+#    context = {}
+#    return render(request, 'eleague/newtournament.html',context)
+
+class TournamentCreate(CreateView):
+    model = Tournament
+    fields =['tag','name','owner','sport']
