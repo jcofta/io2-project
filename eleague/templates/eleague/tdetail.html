@@ -1,1 +1,9 @@
-<h1> {{tournament.name}}</h1>
+<h1> Nazwa turnieju: {{tournament.name}}</h1>
+<h2> Tag: {{tournament.tag}}</h2>
+<h3>Wydarzenie w turnieju</h3>
+
+<ul>
+  {% for event in tournament.event_set.all  %}
+  <li><a href="{{ tournament.id }}/{{event.id}}">{{event.place}} ----- {{event.date}}</li>
+  {%endfor%}
+</ul>

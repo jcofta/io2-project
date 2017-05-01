@@ -19,6 +19,14 @@ def tdetail(request,tournament_id):
     context = {'tournament':tournament}
     return render(request, 'eleague/tdetail.html', context)
 
+def edetail(request,event_id):
+    try:
+        event = Event.objects.get(pk=event_id)
+    except Event.DoesNotExist:
+        raise Http404("Event does not exist")
+    context = {'event':event}
+    return render(request, 'eleague/edetail.html', context)
+
 def myevents(request):
     event_list = Event.objects.filter(tournament__owner=request.user)
     context = {'event_list': event_list}

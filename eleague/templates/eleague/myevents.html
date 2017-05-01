@@ -3,7 +3,7 @@
     {% if event_list %}
     <ul>
     {% for event in event_list %}
-        <li>{{ event }}</li>
+        <li><a href="../{{ event.tournament.id }}/{{event.id}}">{{event.date}}</li>
     {% endfor %}
     </ul>
     {% else %}
