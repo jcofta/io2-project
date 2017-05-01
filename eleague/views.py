@@ -37,10 +37,6 @@ def mytournaments(request):
     context = {'tournament_list': tournament_list}
     return render(request, 'eleague/mytournaments.html',context)
 
-#def newtournament(request):
-#    context = {}
-#    return render(request, 'eleague/newtournament.html',context)
-
 class TournamentCreate(CreateView):
     model = Tournament
     fields =['tag','name','owner','sport']

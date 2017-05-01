@@ -1,6 +1,8 @@
 <h1> Nazwa turnieju: {{tournament.name}}</h1>
 <h2> Tag: {{tournament.tag}}</h2>
+<h3>Sport: {{tournament.sport}}</h3><br>
 <h3>Wydarzenie w turnieju</h3>
+
 
 <ul>
   {% for event in tournament.event_set.all  %}

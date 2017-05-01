@@ -18,7 +18,7 @@ class Tournament(models.Model):
     sport = models.CharField(max_length=3,choices=SPORTS)
 
     def get_absolute_url(self):
-        return reverse('mytournaments',kwargs={'pk':self.pk})
+        return '../mytournaments'
 
 
     def __str__(self):
