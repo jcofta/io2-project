@@ -40,3 +40,7 @@ def mytournaments(request):
 class TournamentCreate(CreateView):
     model = Tournament
     fields =['tag','name','owner','sport']
+
+class EventCreate(CreateView):
+    model = Event
+    fields =['tournament','date','place']

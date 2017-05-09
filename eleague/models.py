@@ -1,4 +1,5 @@
 import datetime
+from django.utils import timezone
 
 from django.db import models
 from django.contrib.auth import models as auth_models
@@ -24,9 +25,16 @@ class Tournament(models.Model):
     def __str__(self):
         return self.name
 
+
+
 class Event(models.Model):
     tournament = models.ForeignKey(Tournament,on_delete=models.CASCADE)
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=timezone.now)
     place = models.CharField(max_length=500)
+
+    def get_absolute_url(self):
+        return '../myevents'
+
+
     def __str__(self):
         return self.tournament.tag + " " + str(self.date)
