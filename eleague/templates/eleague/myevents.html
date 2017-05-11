@@ -6,6 +6,14 @@
         <li><a href="../{{ event.tournament.id }}/{{event.id}}">{{event.date}}</li>
     {% endfor %}
     </ul>
+    <button onclick="goBack()">Go Back</button>
+
+ <script>
+ function goBack() {
+     window.history.back();
+ }
+ </script>
+
     {% else %}
         <p>No events are available.</p>
     {% endif %}

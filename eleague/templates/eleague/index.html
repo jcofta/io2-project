@@ -2,10 +2,26 @@
 {% if user.is_authenticated %}
   <p>Welcome {{ user.username }} !!!</p>
   <a href="{% url 'logout' %}?next=/"> Logout</a><br>
-  <a href="/eleague/mytournaments">My tournaments</a><br>
-  <a href="/eleague/myevents">My events</a><br>
-  <a href="/eleague/newtournament">New Tournament</a><br>
-  <a href="/eleague/newevent">New Event</a><br>
+  <a href="/eleague/mytournaments/">My tournaments</a><br>
+  <a href="/eleague/myevents/">My events</a><br>
+  <a href="/eleague/newtournament/">New Tournament</a><br>
+  <a href="/eleague/newevent/">New Event</a><br>
+
+<div>
+    <form action="/eleague/search/" method="post">
+      {%csrf_token%}
+      Search by tag: <br>
+      <input type="text" name="tag" value="TP">
+      {% if error_message %}
+      <p><strong> {{error_message}}</strong></p>
+      {%endif%}
+      <br>
+      <input type="submit" value="Search"><br>
+
+    </form>
+
+</div>
+
 
 {% else %}
   <p>You are not logged yet!</p>

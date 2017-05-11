@@ -6,8 +6,17 @@
 
 <ul>
   {% for event in tournament.event_set.all  %}
-  <li><a href="{{ tournament.id }}/{{event.id}}">{{event.place}} ----- {{event.date}}</li>
+  <li><a href="/eleague/{{ tournament.id }}/{{event.id}}/">{{event.place}} ----- {{event.date}}</li>
   {%endfor%}
 
     <a href="/eleague/newevent">New Event</a><br>
+
+    <button onclick="goBack()">Go Back</button>
+
+ <script>
+ function goBack() {
+     window.history.back();
+ }
+ </script>
+
 </ul>

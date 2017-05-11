@@ -4,9 +4,18 @@
     {% if tournament_list %}
     <ul>
     {% for tournament in tournament_list %}
-        <li><a href="../{{ tournament.id }}">{{tournament.name}}</li>
+        <li><a href="/eleague/{{ tournament.id }}/">{{tournament.name}}</li>
     {% endfor %}
     </ul>
+
+    <button onclick="goBack()">Go Back</button>
+
+ <script>
+ function goBack() {
+     window.history.back();
+ }
+ </script>
+
     {% else %}
         <p>No tournament are available.</p>
     {% endif %}

@@ -37,9 +37,23 @@ def mytournaments(request):
     context = {'tournament_list': tournament_list}
     return render(request, 'eleague/mytournaments.html',context)
 
+def search(request):
+    try:
+        tournament=Tournament.objects.get(tag=request.POST['tag'])
+    except (KeyError,Tournament.DoesNotExist):
+        return render(request,'eleague/index.html',{'error_message':"Brak turnieju o tym id"})
+    else:
+        context = {'tournament':tournament}
+        return render(request, 'eleague/tdetail.html',context)
+
 class TournamentCreate(CreateView):
     model = Tournament
     fields =['tag','name','owner','sport']
+
+    def get_initial(self):
+        self.initial = {'owner': self.request.user}
+        return self.initial
+
 
 class EventCreate(CreateView):
     model = Event
