@@ -1,0 +1,7 @@
+<p class="section_header">Hello guest, what do You want to do? </p>
+            <div class="options">
+              <a class="btn btn-default col-md-6 col-xs-12 welcome-btn" href="{% url 'login' %}">Log in</a>
+              <a class="btn btn-default col-md-6 col-xs-12 welcome-btn" href="{% url 'signup' %}">Sign up</a>
+            </div>
+
+            {% include 'eleague/../parts/searchbyid.html' %}

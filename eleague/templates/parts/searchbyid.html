@@ -1,0 +1,12 @@
+<div>
+    <form action="/eleague/search/" method="post">
+        {%csrf_token%}
+        <p class="section_header"> Search public tournament:</p>
+        <input type="text" name="tag" value="TP" class="col-xs-12 form-control search_input">
+        {% if error_message %}
+            <p><strong> {{error_message}}</strong></p>
+        {%endif%}
+        <br>
+        <input type="submit" value="Search" class="col-xs-12 search_btn btn btn-success "><br>
+    </form>
+</div>

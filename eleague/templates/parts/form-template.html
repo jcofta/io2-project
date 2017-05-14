@@ -1,0 +1,38 @@
+<!-- STYLES FOR INLINE FORM BELOW -->
+<style>
+    form{
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    form label{
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .theform{
+        clear:both;
+    }
+
+
+    .search_btn{
+        margin-top: 15px;
+    }
+
+</style>
+
+
+<div class="theform">
+ <form action="" method="post">
+     {% csrf_token %}
+     {% for field in form %}
+         <label class="col-xs-12 col-md-2">{{field.label_tag}}</label>
+          <div class="col-xs-12 col-md-4"> {{field}}</div>
+     {% endfor%}
+         <button type="submit" class="col-xs-12 search_btn btn btn-success ">Submit</button>
+ </form>
+</div>
+
+
+
+
