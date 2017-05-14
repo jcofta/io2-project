@@ -41,7 +41,7 @@ def search(request):
     try:
         tournament=Tournament.objects.get(tag=request.POST['tag'])
     except (KeyError,Tournament.DoesNotExist):
-        return render(request,'eleague/index.html',{'error_message':"Brak turnieju o tym id"})
+        return render(request,'eleague/index.html',{'error_message':"There is no tournament with this id!"})
     else:
         context = {'tournament':tournament}
         return render(request, 'eleague/tdetail.html',context)

@@ -1,29 +1,23 @@
-{% if user.is_authenticated %}
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
 
-    <h1>Hi "{{ user.username }}", add a new Event</h1>
+<body>
 
-    <form action="" method="post">
-      {% csrf_token %}
-      {% include 'eleague/form-template.html'%}
-      <div>
-        <button type="submit"> Submit </button>
-      </div>
-    </form>
+    <div class="container col-md-10 col-md-offset-1">
 
-    <button onclick="goBack()">Go Back</button>
+        {% if user.is_authenticated %}
 
- <script>
- function goBack() {
-     window.history.back();
- }
- </script>
+            <p class="section_header col-md-12">Hi {{ user.username }}, add a new Event</p>
 
-{% else %}
+            <form action="" method="post">
+              {% csrf_token %}
+              {% include 'eleague/../parts/form-template.html' %}
+            </form>
 
-    <p>You are not logged yet!</p>
-      <ul>
-        <li><a href="{% url 'login' %}">Log in</a></li>
-        <li><a href="{% url 'signup' %}">Sign up</a></li>
-      </ul>
+             <button class="col-xs-12 return_btn btn btn-default" onclick="goBack()">Go Back</button>
 
-{% endif %}
+        {% else %}
+            {% include 'eleague/../parts/guest.html' %}
+        {% endif %}
+    </div>
+</body>

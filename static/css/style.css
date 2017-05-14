@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #FFCE00;
+    font-family: 'Merienda';
+    font-size: 100px;
+    text-align: center;
+}
+
+.infos{
+    border-radius: 0px;
+}
+
+.clear {    clear:both;}
+
+#header {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    background-image:url('ball.jpg');
+    background-size:cover;
+}
+
+#eLeague{
+    margin-bottom: 15px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.options{
+    height: 25%;
+    box-sizing: border-box;
+}
+
+.welcome-btn{
+    font-size: 40px;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+}
+
+.section_header {
+    text-align:center;
+    font-size:20px;
+    background-color: #FFCE00;
+    padding: 10px;
+    margin-bottom: 0px;
+    clear:both;
+}
+
+.search_input{
+    font-size: 20px;
+    height: 60px;
+    text-align:center;
+    border-radius:0px;
+}
+
+.search_btn{
+    border-radius:0px;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#logout{
+    float: right;
+    clear: both;
+}
+
+.return_btn{
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    .welcome-btn{
+        font-size:30px;
+    }
+}

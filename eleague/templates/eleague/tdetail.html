@@ -1,22 +1,24 @@
-<h1> Nazwa turnieju: {{tournament.name}}</h1>
-<h2> Tag: {{tournament.tag}}</h2>
-<h3>Sport: {{tournament.sport}}</h3><br>
-<h3>Wydarzenie w turnieju</h3>
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
 
+<body>
 
-<ul>
-  {% for event in tournament.event_set.all  %}
-  <li><a href="/eleague/{{ tournament.id }}/{{event.id}}/">{{event.place}} ----- {{event.date}}</li>
-  {%endfor%}
+    <div class="container col-md-10 col-md-offset-1">
+        <p class="section_header col-md-12"><b>{{tournament.name}}</b></p>
+        <div class="infos">
+            <div class="alert alert-success col-xs-12 col-md-6 clear infos"><strong>Tag:</strong> {{tournament.tag}}</div>
+            <div class="alert alert-success col-xs-12 col-md-6 infos    "><strong>Sport:</strong> {{tournament.sport}}</div>
+        </div>
 
-    <a href="/eleague/newevent">New Event</a><br>
+        <p class="section_header col-md-12">Games during tournament</p>
 
-    <button onclick="goBack()">Go Back</button>
+        <ul class="list-group clear">
+          {% for event in tournament.event_set.all  %}
+          <a class="list-group-item" href="/eleague/{{ tournament.id }}/{{event.id}}/">{{event.place}} ----- {{event.date}}</a>
+          {%endfor%}
+            <a href="/eleague/newevent" class="btn btn-success col-xs-12 search_btn">New Event</a><br>
+        </ul>
 
- <script>
- function goBack() {
-     window.history.back();
- }
- </script>
-
-</ul>
+         <button class="col-xs-12 return_btn btn btn-default " onclick="goBack()">Go Back</button>
+    </div>
+</body>

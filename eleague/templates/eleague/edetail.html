@@ -1,10 +1,16 @@
-<h1> Miejsce:{{event.place}}</h1>
-<h2> Data: {{event.date}}</h2>
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
 
-<button onclick="goBack()">Go Back</button>
+<body>
 
-<script>
-function goBack() {
- window.history.back();
-}
-</script>
+    <div class="container col-md-10 col-md-offset-1">
+        <p class="section_header col-md-12"><b>{{event.tournament}}'s event</b></p>
+
+        <div class="infos">
+            <div class="alert alert-success col-xs-12 col-md-6 clear infos"><strong>Place:</strong> {{event.place}}</div>
+            <div class="alert alert-success col-xs-12 col-md-6 infos    "><strong>Date:</strong> {{event.date}}</div>
+        </div>
+        <button class="col-xs-12 return_btn btn btn-default" onclick="goBack()">Go Back</button>
+
+    </div>
+</body>

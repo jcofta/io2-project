@@ -1,8 +1,36 @@
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
+
+<!-- STYLES FOR INLIFE FORM BELOW -->
+<style>
+    form{
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    form p {
+        width:100%;
+    }
+
+    form p label, form p input {
+        text-align:center;
+        width:100%;
+        font-size: 20px;
+    }
+
+    .search_btn{
+        margin-bottom:15px;
+    }
+</style>
+
 {% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
+  <div class="container col-md-10 col-md-offset-1">
+      <p class="section_header">Sign Up</p>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+      <button type="submit" class="col-xs-12 search_btn btn btn-success ">Sign up</button>
+      </form>
+  <button class="col-xs-12 return_btn btn btn-default" onclick="goBack()">Go Back</button>
+  </div>
 {% endblock %}

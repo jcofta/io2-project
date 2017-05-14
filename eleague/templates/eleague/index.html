@@ -1,32 +1,29 @@
-<h1>eLeague</h1>
-{% if user.is_authenticated %}
-  <p>Welcome {{ user.username }} !!!</p>
-  <a href="{% url 'logout' %}?next=/"> Logout</a><br>
-  <a href="/eleague/mytournaments/">My tournaments</a><br>
-  <a href="/eleague/myevents/">My events</a><br>
-  <a href="/eleague/newtournament/">New Tournament</a><br>
-  <a href="/eleague/newevent/">New Event</a><br>
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
 
-<div>
-    <form action="/eleague/search/" method="post">
-      {%csrf_token%}
-      Search by tag: <br>
-      <input type="text" name="tag" value="TP">
-      {% if error_message %}
-      <p><strong> {{error_message}}</strong></p>
-      {%endif%}
-      <br>
-      <input type="submit" value="Search"><br>
+<body>
 
-    </form>
+    <div class="container col-md-10 col-md-offset-1">
 
-</div>
+        {% if user.is_authenticated %}
+          <p class="section_header col-md-12">Welcome {{ user.username }}!!!</p>
+          <span><a href="{% url 'logout' %}?next=/" class="btn btn-default col-md-12" id="logout"> Logout</a><br></span>
+
+          <p class="section_header">What do You need? </p>
+            <div class="options">
+              <a href="/eleague/mytournaments/" class="btn btn-default col-md-6 col-xs-12 welcome-btn" >My tournaments</a>
+              <a href="/eleague/myevents/" class="btn btn-default col-md-6 col-xs-12 welcome-btn" >My events</a>
+              <a href="/eleague/newtournament/" class="btn btn-default col-md-6 col-xs-12 welcome-btn" >New Tournament</a>
+              <a href="/eleague/newevent/" class="btn btn-default col-md-6 col-xs-12 welcome-btn" >New Event</a>
+            </div>
+
+        {% include 'eleague/../parts/searchbyid.html' %}
 
 
-{% else %}
-  <p>You are not logged yet!</p>
-    <ul>
-      <li><a href="{% url 'login' %}">Log in</a></li>
-      <li><a href="{% url 'signup' %}">Sign up</a></li>
-    </ul>
-{% endif %}
+        {% else %}
+            {% include 'eleague/../parts/guest.html' %}
+        {% endif %}
+
+    </div>
+
+</body>

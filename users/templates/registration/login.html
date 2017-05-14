@@ -1,10 +1,35 @@
-{% block title %}Login{% endblock %}
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
+
+<!-- STYLES FOR INLINE FORM BELOW -->
+<style>
+    form{
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+
+    form p {
+        width:100%;
+    }
+
+    form p label, form p input {
+        text-align:center;
+        width:100%;
+        font-size: 20px;
+    }
+</style>
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+
+  <div class="container col-md-10 col-md-offset-1">
+      <p class="section_header">Login</p>
+
+      <form method="post">
+        {{ form.as_p }} {% csrf_token %}
+        <button type="submit" class="col-xs-12 search_btn btn btn-success ">Login</button>
+      </form>
+
+    <button class="col-xs-12 return_btn btn btn-default" onclick="goBack()">Go Back</button>
+    </div>
+
 {% endblock %}

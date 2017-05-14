@@ -1,26 +1,29 @@
-{% if user.is_authenticated %}
-    <h1>Events owned by: {{ user.username }}</h1>
-    {% if event_list %}
-    <ul>
-    {% for event in event_list %}
-        <li><a href="../{{ event.tournament.id }}/{{event.id}}">{{event.date}}</li>
-    {% endfor %}
-    </ul>
-    <button onclick="goBack()">Go Back</button>
+{% load static %}
+{% include 'eleague/../parts/header.html' %}
 
- <script>
- function goBack() {
-     window.history.back();
- }
- </script>
+<body>
 
-    {% else %}
-        <p>No events are available.</p>
-    {% endif %}
-{% else %}
-    <p>You are not logged yet!</p>
-      <ul>
-        <li><a href="{% url 'login' %}">Log in</a></li>
-        <li><a href="{% url 'signup' %}">Sign up</a></li>
-      </ul>
-{% endif %}
+    <div class="container col-md-10 col-md-offset-1">
+
+        {% if user.is_authenticated %}
+            <p class="section_header col-md-12"><b>Events owned by: {{ user.username }}</b></p>
+
+
+
+            {% if event_list %}
+            <ul class="list-group clear">
+            {% for event in event_list %}
+                <a class="list-group-item" href="../{{ event.tournament.id }}/{{event.id}}">{{event.date}}</a>
+            {% endfor %}
+            </ul>
+            <a href="/eleague/newevent" class="btn btn-success col-xs-12 search_btn">New Event</a><br>
+            <button class="col-xs-12 return_btn btn btn-default" onclick="goBack()">Go Back</button>
+
+            {% else %}
+                <p>No events are available.</p>
+            {% endif %}
+        {% else %}
+            {% include 'eleague/../parts/guest.html' %}
+        {% endif %}
+    </div>
+</body>
