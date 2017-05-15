@@ -25,6 +25,20 @@ class Tournament(models.Model):
     def __str__(self):
         return self.name
 
+    def show_tag(self):
+        return "This is " + self.tag + " Tournament"
+
+    def get_owner(self):
+        return self.owner.username
+
+    def get_sport(self):
+        return self.sport
+
+    def get_all(self):
+        return self.tag + ' ' + self.name + ' ' + self.sport
+
+    def get_all_with_owner(self):
+        return self.tag + ' ' + self.name + ' ' + self.owner.username + ' ' + self.sport
 
 
 class Event(models.Model):
