@@ -28,6 +28,9 @@ class Tournament(models.Model):
     def show_tag(self):
         return "This is " + self.tag + " Tournament"
 
+    def get_tag(self):
+        return self.tag
+
     def get_owner(self):
         return self.owner.username
 
@@ -52,3 +55,9 @@ class Event(models.Model):
 
     def __str__(self):
         return self.tournament.tag + " " + str(self.date)
+
+    def get_date(self):
+        return str(self.date)
+
+    def get_place(self):
+        return self.place
