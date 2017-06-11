@@ -1,0 +1,6 @@
+projectKey=E-League
+serverUrl=http://localhost:9000
+serverVersion=6.4.0.25310
+dashboardUrl=http://localhost:9000/dashboard/index/E-League
+ceTaskId=AVyZeR-_f1AQfuIt_4LV
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVyZeR-_f1AQfuIt_4LV
