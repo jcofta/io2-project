@@ -13,4 +13,9 @@
         <button class="col-xs-12 return_btn btn btn-default" onclick="goBack()">Go Back</button>
 
     </div>
+    <form action="/eleague/{{event.tournament.id}}/{{event.id}}/delete/" method="post">
+        {%csrf_token%}
+        <br>
+        <input type="submit" value="Delete" class="col-xs-10 col-xs-offset-1 search_btn btn btn-danger "><br>
+    </form>
 </body>

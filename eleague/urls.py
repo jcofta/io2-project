@@ -19,7 +19,9 @@ urlpatterns = [
     # ex: /eleague/newevent
     url(r'^newevent/$',views.EventCreate.as_view(), name='newevent'),
     # ex: /eleague/<tournament_tag>/search
-    url(r'^search/$',views.search,name='search')
+    url(r'^search/$',views.search,name='search'),
+
+    url(r'^([0-9]+)/(?P<event_id>[0-9]+)/delete/$',views.edelete, name='deleteevent')
 
 
 ]
